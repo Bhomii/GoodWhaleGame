@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.pawras.selfi">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:name="android.hardware.camera"/>
+
+    <uses-feature android:name="android.hardware.camera.front" />
+    <uses-feature android:name="android.hardware.microphone"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activities.MainActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".authuntication.Sign_in"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".authuntication.SignUp"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".activities.Gallery_images"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".activities.Gallery_videos"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".utilities.Videoplayer"
+            android:screenOrientation="landscape"/>
+
+        <provider
+            android:name=".utilities.LegacyCompatFileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+        <!-- <service -->
+        <!-- android:name=".UploadService" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true"></service> -->
+        <activity
+            android:name=".activities.CustomCamera"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".utilities.VideoRecording"
+            android:screenOrientation="landscape">
+        </activity>
+    </application>
+
+</manifest>
